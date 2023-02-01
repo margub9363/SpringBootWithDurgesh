@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @SpringBootApplication
 public class SpringBootProjectWithDurgeshApplication {
@@ -15,6 +16,8 @@ public class SpringBootProjectWithDurgeshApplication {
         ApplicationContext context = SpringApplication.run(SpringBootProjectWithDurgeshApplication.class, args);
 
         UserRepository userRepository =context.getBean(UserRepository.class);
+
+        /*
         User user1 = new User();
         user1.setName("Rahman1");
         user1.setCity("Ranchi");
@@ -36,6 +39,14 @@ public class SpringBootProjectWithDurgeshApplication {
             System.out.println(u);
         };
 
+         */
+
+//        updating  a user with User Id 1
+        userRepository.findById(1);
+        Optional<User> userWithId1 = userRepository.findById(1);
+        System.out.println(userWithId1);
+        userWithId1.get();
+        System.out.println(userWithId1.get());
     }
 
 }
