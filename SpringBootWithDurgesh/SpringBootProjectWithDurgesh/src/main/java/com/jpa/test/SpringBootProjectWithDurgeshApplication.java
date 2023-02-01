@@ -6,6 +6,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+import java.util.ArrayList;
+
 @SpringBootApplication
 public class SpringBootProjectWithDurgeshApplication {
 
@@ -13,13 +15,27 @@ public class SpringBootProjectWithDurgeshApplication {
         ApplicationContext context = SpringApplication.run(SpringBootProjectWithDurgeshApplication.class, args);
 
         UserRepository userRepository =context.getBean(UserRepository.class);
-        User user = new User();
-        user.setName("Rahman");
-        user.setCity("Ranchi");
-        user.setStatus("Full Stack Developer");
+        User user1 = new User();
+        user1.setName("Rahman1");
+        user1.setCity("Ranchi");
+        user1.setStatus("Full Stack Developer");
 
-        User user1 = userRepository.save(user);
-        System.out.println(user1);
+        User user2 = new User();
+        user2.setName("Rahman2");
+        user2.setCity("Ranchi");
+        user2.setStatus("Full Stack Developer");
+
+        ArrayList<User> al = new ArrayList<User>();
+        al.add(user1);
+        al.add(user2);
+
+        Iterable<User> savedUser = userRepository.saveAll(al);
+
+        System.out.println("Below User got Saved:");
+        for (User u : savedUser) {
+            System.out.println(u);
+        };
+
     }
 
 }
