@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @SpringBootApplication
@@ -41,6 +42,7 @@ public class SpringBootProjectWithDurgeshApplication {
 
          */
 
+        /*
 //        updating  a user with User Id 1
         userRepository.findById(1);
         Optional<User> userWithId1 = userRepository.findById(1);
@@ -50,6 +52,15 @@ public class SpringBootProjectWithDurgeshApplication {
             System.out.println(userWithId1.get());
         }
         else System.out.println("This User id is not valid");
+                 */
+
+        List<User> user = userRepository.findByName("Tannu");
+        user.forEach(s -> System.out.println(s));
+
+        List<User> users2 = userRepository.findByNameAndCity("Margub","Karaa");
+        users2.forEach(s -> System.out.println(s));
+
     }
+
 
 }
