@@ -44,9 +44,12 @@ public class SpringBootProjectWithDurgeshApplication {
 //        updating  a user with User Id 1
         userRepository.findById(1);
         Optional<User> userWithId1 = userRepository.findById(1);
-        System.out.println(userWithId1);
-        userWithId1.get();
-        System.out.println(userWithId1.get());
+        if(userWithId1.isPresent()) {
+            System.out.println(userWithId1);
+            userWithId1.get();
+            System.out.println(userWithId1.get());
+        }
+        else System.out.println("This User id is not valid");
     }
 
 }
