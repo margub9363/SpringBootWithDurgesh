@@ -54,11 +54,20 @@ public class SpringBootProjectWithDurgeshApplication {
         else System.out.println("This User id is not valid");
                  */
 
+        /*
         List<User> user = userRepository.findByName("Tannu");
         user.forEach(s -> System.out.println(s));
 
         List<User> users2 = userRepository.findByNameAndCity("Margub","Karaa");
         users2.forEach(s -> System.out.println(s));
+         */
+
+        List<User> allUserList = userRepository.getEveryUser();
+        allUserList.forEach(u -> System.out.println(u));
+
+        List<User> usersByStatus = userRepository.getUserByStatus("Vella");
+        usersByStatus.forEach( u -> System.out.println(u));
+
 
     }
 
