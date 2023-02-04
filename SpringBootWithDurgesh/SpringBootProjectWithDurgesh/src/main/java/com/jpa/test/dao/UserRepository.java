@@ -21,6 +21,7 @@ public interface UserRepository extends CrudRepository<User,Integer> {
     @Query("select u from User u where u.status=:n")
     List<User> getUserByStatus(@Param("n") String name);
 
-
+    @Query(value = "SELECT *  FROM test4.user limit 2", nativeQuery = true)
+    List<User> getTop2Record();
 }
 

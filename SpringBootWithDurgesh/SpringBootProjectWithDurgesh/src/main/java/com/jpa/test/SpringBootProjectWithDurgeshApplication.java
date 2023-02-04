@@ -62,11 +62,21 @@ public class SpringBootProjectWithDurgeshApplication {
         users2.forEach(s -> System.out.println(s));
          */
 
+        System.out.println("*********** Get Every User ******************** ");
         List<User> allUserList = userRepository.getEveryUser();
         allUserList.forEach(u -> System.out.println(u));
+        System.out.println("***********************************************");
 
+        System.out.println("*********** User By Status ******************** ");
         List<User> usersByStatus = userRepository.getUserByStatus("Vella");
         usersByStatus.forEach( u -> System.out.println(u));
+        System.out.println("***********************************************");
+
+
+        System.out.println("*********** Top 2 Record ******************** ");
+        List<User> top2Record = userRepository.getTop2Record();
+        top2Record.forEach(u -> System.out.println(u));
+        System.out.println("***********************************************");
 
 
     }
